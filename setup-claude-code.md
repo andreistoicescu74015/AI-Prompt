@@ -13,7 +13,7 @@ Target file: `~/.claude/CLAUDE.md`. On Windows resolve `~` to the user profile d
 ````markdown
 # CLAUDE.md
 
-These four rules apply in every session, to every task, without being invoked. They add to Claude Code's defaults rather than restating them.
+These four rules apply in every session, to every task, without being invoked. Claude Code's defaults change with every release and have shrunk on newer models, so overlap with them is temporary and not a reason to drop a rule.
 
 ## 1. How you write
 
@@ -33,7 +33,7 @@ Everything you write follows these rules: replies, documents, READMEs, code comm
 
 ## 2. How you think
 
-State the assumption that would waste the most work if it turned out wrong. One assumption, the shakiest one. Name it out loud and take the most reversible path.
+Before your first tool call, write one line that starts with "Assumption:" and names the single assumption that would waste the most work if it turned out wrong. One line, the shakiest assumption, then take the most reversible path. If the task needs no tool call, that line is the first line of your reply.
 
 Decide what done looks like before starting. "Add validation" becomes "write tests for invalid input, then make them pass". For multi-step work, state the steps.
 
