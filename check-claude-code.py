@@ -15,9 +15,9 @@ A rule that scores the same in both conditions is not doing anything: either
 the default already covers it, or it never fires. Use --expect to check a rule
 that requires a literal string, such as the rule 2 assumption line.
 
-The em dash, en dash, curly quote, emoji, Title Case and bold-colon counts are
-exact. The rest are heuristics and will miss cases; treat a zero there as
-"not detected", not as "clean".
+The em dash, en dash, curly quote, emoji, Title Case, bold-colon and horizontal
+rule counts are exact. The rest are heuristics and will miss cases; treat a zero
+there as "not detected", not as "clean".
 """
 import argparse, json, os, re, shutil, subprocess, sys
 
@@ -33,7 +33,10 @@ MARKERS = [
     ('-ing tail',        re.compile(r',\s+(ensuring|highlighting|showcasing|underscoring|making it|allowing you to|enabling|empowering)\b', re.I)),
     ('X is the Y of Z',  re.compile(r'\bis the \w+ of\b', re.I)),
     ('serves as',        re.compile(r'\b(serves as|stands as|represents a|boasts)\b', re.I)),
-    ('from X to Y',      re.compile(r'\bfrom \w+ to \w+\b', re.I)),
+    ('arguing w/ no one', re.compile(r"\b(to be clear|i'm not saying|don't get me wrong|a tempting approach|one might be tempted|you might think|some might say)\b", re.I)),
+    ('vague connection', re.compile(r'\b(associated with|tied to|linked to|in connection with)\b', re.I)),
+    ('horizontal rule',  re.compile(r'^\s*(-{3,}|\*{3,}|_{3,})\s*$', re.M)),
+    ('one-line paragraph', re.compile(r'^(?![#\-*>|\d\s]|Assumption:)(?:\S+\s+){1,11}\S+[.!?]$', re.M)),
 ]
 
 HEADING = re.compile(r'^#{1,6}\s+(.+?)\s*$', re.M)
