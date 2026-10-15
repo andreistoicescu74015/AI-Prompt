@@ -36,6 +36,8 @@ MARKERS = [
     ('arguing w/ no one', re.compile(r"\b(to be clear|i'm not saying|don't get me wrong|a tempting approach|one might be tempted|you might think|some might say)\b", re.I)),
     ('vague connection', re.compile(r'\b(associated with|tied to|linked to|in connection with)\b', re.I)),
     ('horizontal rule',  re.compile(r'^\s*(-{3,}|\*{3,}|_{3,})\s*$', re.M)),
+    ('method narration', re.compile(r"\b(while preserving|ensur(ed|ing) (that|consistency|correctness|no)|nothing else( in the \w+)? (was|has been) (touched|changed|modified)|no (other|unrelated) (files|changes|code) (were|was|are|is)|the (table|list|section) below)\b", re.I)),
+    ('restated context', re.compile(r"\b(as you (said|noted|mentioned|pointed out|know)|you mentioned that|as we (discussed|agreed))\b", re.I)),
     ('one-line paragraph', re.compile(r'^(?![#\-*>|\d\s]|Assumption:)(?:\S+\s+){1,11}\S+[.!?]$', re.M)),
 ]
 
